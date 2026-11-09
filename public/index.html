@@ -52,6 +52,7 @@
           <select id="useCase" disabled>
             <option>Loading use cases…</option>
           </select>
+          <p class="field-hint">Auto-detect uses an in-browser Naive Bayes text classifier. Or choose a category manually.</p>
         </div>
         <div>
           <label for="outputTokens">Expected answer length</label>
@@ -92,9 +93,10 @@
       </section>
 
       <p class="disclaimer">
-        Token counts are rough browser-side estimates. Rates are sample values maintained in
-        <code>data/models.json</code>, not live provider prices. Verify current pricing before budgeting.
-        The prompt is never sent to this server or an AI provider.
+        Use-case auto-detection is a lightweight Naive Bayes classifier trained on example phrases;
+        its confidence is relative, not a guaranteed accuracy score. Token counts are rough browser-side
+        estimates. Rates are sample values maintained in <code>data/models.json</code>, not live provider
+        prices. Verify current pricing before budgeting. Your prompt is not sent to this server or an AI provider.
       </p>
     </section>
 
