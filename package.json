@@ -1,0 +1,12 @@
+{
+  "name": "querywise-llm-recommender",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Use-case-based LLM recommendations and token cost estimates",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="QueryWise recommends LLMs for your use case and estimates token costs.">
+  <title>QueryWise — LLM Recommender</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <canvas id="scene" aria-hidden="true"></canvas>
+
+  <main class="page">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="QueryWise home">
+        <span class="brand-mark" aria-hidden="true">Q</span>
+        <span>QueryWise</span>
+      </a>
+      <span class="topbar-note">LLM cost &amp; use-case recommender</span>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="status-dot"></span> MODEL MATCHING, MADE SIMPLE</div>
+        <h1>Find the right model.<br><span>Skip the guesswork.</span></h1>
+        <p>Choose your task, estimate token costs, and compare suitable models before you decide.</p>
+      </div>
+      <div class="hero-orb-space" aria-hidden="true"></div>
+    </section>
+
+    <section class="card input-card" aria-labelledby="form-title">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">01 / YOUR TASK</div>
+          <h2 id="form-title">What are you working on?</h2>
+        </div>
+        <span class="privacy-pill">Your prompt stays in your browser</span>
+      </div>
+
+      <label for="query">Describe your task or paste your prompt</label>
+      <textarea id="query" maxlength="50000" placeholder="For example: Summarize this report in five bullet points..."></textarea>
+      <div class="input-meta">
+        <span id="token-estimate">Estimated input: 0 tokens</span>
+        <span>Prompt text is not uploaded</span>
+      </div>
+
+      <div class="form-grid">
+        <div>
+          <label for="useCase">Primary use case</label>
+          <select id="useCase" disabled>
+            <option>Loading use cases…</option>
+          </select>
+        </div>
+        <div>
+          <label for="outputTokens">Expected answer length</label>
+          <select id="outputTokens">
+            <option value="150">Short · ~150 tokens</option>
+            <option value="500" selected>Medium · ~500 tokens</option>
+            <option value="1200">Long · ~1,200 tokens</option>
+            <option value="2500">Very long · ~2,500 tokens</option>
+          </select>
+        </div>
+      </div>
+
+      <p id="error" class="error" role="alert"></p>
+      <button id="recommendButton" type="button" disabled>
+        <span>Find my best-fit model</span><span aria-hidden="true">→</span>
+      </button>
+    </section>
+
+    <section id="results" class="results" aria-live="polite" hidden>
+      <div class="result-heading">
+        <div>
+          <div class="eyebrow">02 / YOUR RECOMMENDATION</div>
+          <h2>Best fit for your task</h2>
+        </div>
+        <span id="result-task" class="task-pill"></span>
+      </div>
+      <article id="recommendation" class="card recommendation-card"></article>
+
+      <section class="card comparison-card" aria-labelledby="comparison-title">
+        <div class="comparison-heading">
+          <div>
+            <div class="eyebrow">COST BREAKDOWN</div>
+            <h2 id="comparison-title">Compare matching models</h2>
+          </div>
+          <span class="sort-label">Lowest estimated cost first</span>
+        </div>
+        <div id="model-list"></div>
+      </section>
+
+      <p class="disclaimer">
+        Token counts are rough browser-side estimates. Rates are sample values maintained in
+        <code>data/models.json</code>, not live provider prices. Verify current pricing before budgeting.
+        The prompt is never sent to this server or an AI provider.
+      </p>
+    </section>
+
+    <footer class="footer">
+      <span>© <span id="year"></span> Bishal Mondal</span>
+      <span>Built for clearer LLM choices.</span>
+    </footer>
+  </main>
+</body>
+</html>

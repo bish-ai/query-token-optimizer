@@ -1,0 +1,51 @@
+{
+  "useCases": [
+    { "id": "simple", "label": "Simple tasks", "description": "Extraction, classification, rewriting, and straightforward tasks." },
+    { "id": "general", "label": "General use", "description": "Everyday questions, summaries, and general-purpose assistance." },
+    { "id": "writing", "label": "Writing", "description": "Drafting, editing, summarizing, and adjusting tone." },
+    { "id": "coding", "label": "Coding", "description": "Code generation, explanation, and debugging." },
+    { "id": "reasoning", "label": "Complex reasoning", "description": "More difficult tasks that may benefit from a stronger model." }
+  ],
+  "models": [
+    {
+      "id": "gemini-flash-example",
+      "name": "Gemini Flash",
+      "provider": "Google",
+      "inputPerMillion": 0.1,
+      "outputPerMillion": 0.4,
+      "useCases": ["simple", "general", "writing", "coding"]
+    },
+    {
+      "id": "gpt-mini-example",
+      "name": "GPT-4o mini",
+      "provider": "OpenAI",
+      "inputPerMillion": 0.15,
+      "outputPerMillion": 0.6,
+      "useCases": ["simple", "general", "writing", "coding"]
+    },
+    {
+      "id": "claude-haiku-example",
+      "name": "Claude Haiku",
+      "provider": "Anthropic",
+      "inputPerMillion": 0.8,
+      "outputPerMillion": 4,
+      "useCases": ["general", "writing"]
+    },
+    {
+      "id": "gpt-advanced-example",
+      "name": "GPT-4o",
+      "provider": "OpenAI",
+      "inputPerMillion": 2.5,
+      "outputPerMillion": 10,
+      "useCases": ["coding", "reasoning"]
+    },
+    {
+      "id": "claude-sonnet-example",
+      "name": "Claude Sonnet",
+      "provider": "Anthropic",
+      "inputPerMillion": 3,
+      "outputPerMillion": 15,
+      "useCases": ["writing", "coding", "reasoning"]
+    }
+  ]
+}
